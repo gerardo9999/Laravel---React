@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <div id="example"></div>
+                    <div id="index"></div>
                 </div>
             </div>
         </div>
