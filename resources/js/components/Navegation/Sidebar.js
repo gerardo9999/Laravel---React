@@ -1,60 +1,36 @@
 import React, { Fragment } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Sidebar = () => {
-    const  [menu,setMenu] = useState([
-        {}
-    ]) ;
+    const [menu, setMenu] = useState([
+        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" },
+        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" },
+        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" },
+        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" },
+        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" }
+    ]);
 
 
     return (
         <Fragment>
             <ul className="menu-inner py-1">
-                <li className="menu-item">
-                    <a href="index.html" className="menu-link">
-                        <i className="menu-icon tf-icons bx bx-home-circle"></i>
-                        <div data-i18n="Analytics">Dashboard</div>
-                    </a>
-                </li>
 
-                <li className="menu-item active open">
-                    <a href="#" className="menu-link menu-toggle">
-                        <i className="menu-icon tf-icons bx bx-layout"></i>
-                        <div data-i18n="Layouts">Layouts</div>
-                    </a>
-                    ,
-                    <ul className="menu-sub">
-                        <li className="menu-item">
-                            <a href="layouts-without-menu.html" className="menu-link">
-                                <div data-i18n="Without menu">Without menu</div>
-                            </a>
+                {menu.map((item, key) => {
+                    return (
+                        <li key={key} className="menu-item">
+                            <Link to={item.path} className="menu-link">
+                                <i className={item.icon}></i>
+                                <div data-i18n="Analytics">{item.title}</div>
+                            </Link>
                         </li>
-                        <li className="menu-item">
-                            <a href="layouts-without-navbar.html" className="menu-link">
-                                <div data-i18n="Without navbar">Without navbar</div>
-                            </a>
-                        </li>
-                        <li className="menu-item active">
-                            <a href="layouts-container.html" className="menu-link">
-                                <div data-i18n="Container">Container</div>
-                            </a>
-                        </li>
-                        <li className="menu-item">
-                            <a href="layouts-fluid.html" className="menu-link">
-                                <div data-i18n="Fluid">Fluid</div>
-                            </a>
-                        </li>
-                        <li className="menu-item">
-                            <a href="layouts-blank.html" className="menu-link">
-                                <div data-i18n="Blank">Blank</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    )
+                })}
+
             </ul>
 
-        
+
         </Fragment>
     )
 }

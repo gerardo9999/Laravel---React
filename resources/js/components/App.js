@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Producto from "./Modules/Producto";
 import Categoria from "./Modules/Categoria";
 import Footer from "./Modules/Footer";
+import Sidebar from "./Navegation/Sidebar";
 
 
 const App = () => {
@@ -24,7 +25,8 @@ const App = () => {
 
                         <div className="menu-inner-shadow"></div>
 
-                        
+                     
+                        <Sidebar></Sidebar>
                     </aside>
                     {/* <!-- / Menu --> */}
 
