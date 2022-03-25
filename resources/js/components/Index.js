@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import App from "./App";
 
 function Index() {
     return (
-        <div className="container">
+        <Fragment >
            <App/>
-        </div>
+        </Fragment>
     );
 }
 

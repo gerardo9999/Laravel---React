@@ -14,3 +14,5 @@ require('./bootstrap');
 
 require('./components/Index');
 require('./components/App');
+require('./components/Modules/Categoria');
+require('./components/Modules/Producto');
