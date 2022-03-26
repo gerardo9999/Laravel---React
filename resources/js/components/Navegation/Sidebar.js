@@ -1,39 +1,33 @@
 import React, { Fragment } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Item from "./Item"
 
 const Sidebar = () => {
-    const [menu, setMenu] = useState([
-        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" },
-        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" },
-        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" },
-        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" },
-        { title: "Dasboard", icon: "menu-icon tf-icons bx bx-home-circle" , path : "/Dasboard" }
-    ]);
 
+    const menu = [
+        { key: 0, title: "Home", icon: "menu-icon tf-icons bx bx-home-circle", path: "/home", submenu: [], dropdown: false },
+        { key: 1, title: "Producto", icon: "menu-icon tf-icons bx bx-home-circle", path: "/producto", submenu: [], dropdown: false },
+        { key: 2, title: "Categoria", icon: "menu-icon tf-icons bx bx-home-circle", path: "/categoria", submenu: [], dropdown: false }
+    ];
+
+    console.log(menu);
 
     return (
         <Fragment>
             <ul className="menu-inner py-1">
-
-                {menu.map((item, key) => {
+                {menu.map((item,key)=>{
+                    console.log(item);
                     return (
-                        <li key={key} className="menu-item">
-                            <Link to={item.path} className="menu-link">
-                                <i className={item.icon}></i>
-                                <div data-i18n="Analytics">{item.title}</div>
-                            </Link>
-                        </li>
+                        <Fragment key={key}>
+                        <Item
+                            item={item}
+                        />
+                    </Fragment>
                     )
                 })}
-
             </ul>
-
-
         </Fragment>
     )
 }
-
-
 export default Sidebar;
