@@ -1,21 +1,21 @@
-// import Dropdown from "./Dropdown";
-
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
 const Item = props => {
-    const { item } = props
+    const { item, clickActive, activeClass } = props
 
 
     return (
-        <li key={item.key} className="menu-item">
-            <Link to={item.path} className="menu-link">
-                <i className={item.icon}></i>
-                <div data-i18n="Analytics">{item.title}</div>
-            </Link>
-        </li>
+        <Fragment key={item.key}>
+            <li className={activeClass[item.name]}>
+                <Link to={item.path} className="menu-link" onClick={() => clickActive(item.name)}>
+                    <i className="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">{item.title}</div>
+                </Link>
+            </li>
+        </Fragment>
     );
 }
 
 export default Item;
-

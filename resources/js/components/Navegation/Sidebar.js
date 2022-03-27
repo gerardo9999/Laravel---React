@@ -1,29 +1,50 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Item from "./Item"
 
+
+const initClass = {
+    producto: 'menu-item',
+    categoria: 'menu-item',
+    home: 'menu-item',
+    subcategoria: 'menu-item',
+}
+
+
 const Sidebar = () => {
 
-    const menu = [
-        { key: 0, title: "Home", icon: "menu-icon tf-icons bx bx-home-circle", path: "/home", submenu: [], dropdown: false },
-        { key: 1, title: "Producto", icon: "menu-icon tf-icons bx bx-home-circle", path: "/producto", submenu: [], dropdown: false },
-        { key: 2, title: "Categoria", icon: "menu-icon tf-icons bx bx-home-circle", path: "/categoria", submenu: [], dropdown: false }
-    ];
+    const [activeClass, setActiveClass] = useState(initClass);
 
-    console.log(menu);
+    const [menu, setMenu] = useState([
+        { key: 0, name: 'producto', title: 'Producto', path: '/producto', dropdown: false, subMenu: [] },
+        { key: 1, name: 'categoria', title: 'Categoria', path: '/categoria', dropdown: false, subMenu: [] }
+    ]);
+
+    const clickActive = (data) => {
+        let producto = data === 'producto' ? 'menu-item active' : 'menu-item';
+        let categoria = data === 'categoria' ? 'menu-item active' : 'menu-item';
+        let home = data === 'home' ? 'menu-item active' : 'menu-item';
+
+        setActiveClass({
+            producto : producto,
+            categoria : categoria,
+            home: home,
+        });
+    }
 
     return (
         <Fragment>
+
             <ul className="menu-inner py-1">
-                {menu.map((item,key)=>{
-                    console.log(item);
+                {menu.map((option, key) => {
                     return (
-                        <Fragment key={key}>
                         <Item
-                            item={item}
-                        />
-                    </Fragment>
+                            key={key}
+                            item={option}
+                            activeClass={activeClass}
+                            clickActive={clickActive}
+                        ></Item>
                     )
                 })}
             </ul>
