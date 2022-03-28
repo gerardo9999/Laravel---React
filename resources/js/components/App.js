@@ -25,21 +25,15 @@ const App = () => {
 
                         <div className="content-wrapper">
                             <div className="container-xxl flex-grow-1 container-p-y">
-                                <div className="layout-demo-wrapper">
-                                    <div className="layout-demo-placeholder">
-                                        <img
-                                            src="../assets/img/layouts/layout-container-light.png"
-                                            className="img-fluid"
-                                            alt="Layout container"
-                                            data-app-light-img="layouts/layout-container-light.png"
-                                            data-app-dark-img="layouts/layout-container-dark.png"
-                                        />
-                                    </div>
-                                    <div className="layout-demo-info">
-                                        <h4>Layout container</h4>
-                                        <p>Container layout sets a <code>max-width</code> at each responsive breakpoint.</p>
-                                    </div>
-                                </div>
+                                {/* <div className="layout-demo-wrapper"> */}
+                                {/* npm install --save react-redux */}
+                                   <div className="card">
+
+                                       <div className="card-body">
+
+                                       </div>
+                                   </div>
+                                {/* </div> */}
                             </div>
                             <Footer></Footer>
                             <div className="content-backdrop fade"></div>

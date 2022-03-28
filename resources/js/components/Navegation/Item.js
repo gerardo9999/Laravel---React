@@ -5,7 +5,6 @@ import Dropdown from "./Dropdown";
 const Item = props => {
     const { item, clickActive, activeClass } = props
 
-
     return (
         <Fragment key={item.key}>
             <li className={activeClass[item.name]}>
